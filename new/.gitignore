@@ -28,9 +28,9 @@ Thumbs.db
 *.sln
 *.sw?
 
-# Wasm
-/wasm/*/target
-/wasm/*/pkg
+# Build
+/.output/
+/.vinxi/
 
 # Docs
 /docs
