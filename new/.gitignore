@@ -1,0 +1,40 @@
+/dist
+/.solid
+/.output
+/.vercel
+
+# Dependencies
+/node_modules
+
+.db
+
+# Temp
+gitignore
+*.cache
+
+# Editor directories and files
+/.vscode/*
+!/.vscode/extensions.json
+!/.vscode/settings.json
+/.idea/*
+!/.idea/codeStyles
+!/.idea/inspectionProfiles
+!/.idea/jsLinters
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Wasm
+/wasm/*/target
+/wasm/*/pkg
+
+# Docs
+/docs
+
+# Tests
+/coverage
+/__testing

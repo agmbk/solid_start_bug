@@ -1,0 +1,24 @@
+@use 'sass:math';
+@import '../assets/styles/variables';
+
+.footer {
+	$padding: 15px;
+
+	@extend .defaultSpacing;
+
+	padding: $padding;
+	text-align: center;
+
+	& > ul {
+		padding-bottom: $padding;
+
+		& > li > a {
+			display: inline-block;
+			padding: math.div($padding, 2);
+		}
+	}
+
+	& * {
+		color: $grey;
+	}
+}

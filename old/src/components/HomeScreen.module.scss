@@ -1,0 +1,9 @@
+@import "../assets/styles/variables";
+
+.wrapper {
+	@extend .screenHeight, .flexCenter;
+
+	& > * {
+		height: max(5vh, 4vw);
+	}
+}

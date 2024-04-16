@@ -1,0 +1,38 @@
+{
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"noUncheckedIndexedAccess": true,
+		"forceConsistentCasingInFileNames": true,
+		"noImplicitReturns": true,
+		"noImplicitAny": true,
+		"noImplicitOverride": true,
+		"noImplicitThis": true,
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"jsxImportSource": "solid-js",
+		"jsx": "preserve",
+		"noEmit": true,
+		"strict": true,
+		"alwaysStrict": true,
+		"types": [
+			"vite-plugin-solid-svg/types",
+			"vite/client",
+			"solid-start/env"
+		],
+		"baseUrl": "./",
+		"paths": {
+			"~/*": [
+				"./src/*"
+			]
+		}
+	},
+	"include": [
+		"src",
+		"./src/index.d.ts"
+	],
+	"exclude": [
+		"node_modules"
+	]
+}

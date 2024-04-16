@@ -1,0 +1,15 @@
+@import '../../assets/styles/variables';
+
+.logo {
+	position: relative;
+	display: inline-block;
+	width: min-content;
+	height: 20px;
+	aspect-ratio: 5.54/1;
+	background: url('/logo.svg') no-repeat;
+	background-size: auto;
+
+	&.disabled {
+		@extend .disabled;
+	}
+}

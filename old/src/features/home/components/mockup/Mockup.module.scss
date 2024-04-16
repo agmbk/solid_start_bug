@@ -1,0 +1,66 @@
+@import '../../assets/styles/variables';
+
+section {
+	& > .wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-auto-flow: column;
+		align-items: center;
+		margin: 0 auto;
+
+		& > * {
+			@extend .flexCenter, .flexColumn;
+
+			position: relative;
+			max-width: 700px;
+			aspect-ratio: 4/3;
+
+			& > * {
+				@extend .fullWidth;
+
+				text-align: left;
+			}
+
+			& > picture {
+				pointer-events: none;
+
+				& > img {
+					@extend .fullSize;
+				}
+			}
+		}
+
+		@media (max-width: $breakpoint-small) {
+			gap: 40px;
+
+			& img {
+				max-width: 100%;
+			}
+		}
+	}
+
+	&:nth-child(odd) > .wrapper {
+		direction: rtl;
+
+		& > div > * {
+			direction: ltr;
+		}
+	}
+}
+
+@media (max-width: $breakpoint-medium) {
+	section {
+		& > .wrapper {
+			grid-template-columns: 1fr;
+			grid-auto-flow: row;
+
+			& .textContainer {
+				aspect-ratio: auto;
+			}
+
+			& div > * {
+				text-align: center;
+			}
+		}
+	}
+}

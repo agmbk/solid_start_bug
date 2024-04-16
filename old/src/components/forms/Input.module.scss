@@ -1,0 +1,19 @@
+@import '../../assets/styles/variables';
+
+.wrapper {
+	@extend .flexColumn;
+
+	& > input {
+		@extend .fullWidth;
+
+		order: 0;
+
+		&.errored {
+			border-bottom: 2px solid $red;
+		}
+	}
+
+	& > .errors {
+		order: 1;
+	}
+}

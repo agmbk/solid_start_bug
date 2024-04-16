@@ -1,0 +1,20 @@
+@use 'sass:color';
+@import '../../../assets/styles/variables';
+
+$background-base: #000;
+$background: color.scale($background-base, $alpha: -25%);
+$padding: 50px;
+
+#app {
+	@extend .scrollY, .flexColumn;
+
+	background: color.scale($background-base, $alpha: -50%);
+}
+
+@media screen and (max-width: $breakpoint-small) {
+	#app {
+		background: $background-base;
+	}
+}
+
+

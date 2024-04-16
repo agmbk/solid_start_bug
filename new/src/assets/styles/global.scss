@@ -1,0 +1,171 @@
+@use 'sass:color';
+@use 'sass:math';
+@import 'normalize';
+@import './variables';
+@import './fonts';
+
+$font-family: 'Helvetica Neue', 'Segoe UI', 'Roboto', 'Ubuntu', sans-serif;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	user-select: none;
+	-webkit-user-drag: none;
+}
+
+*:focus-visible {
+	@extend .outline;
+}
+
+@media (pointer: fine) {
+	*:not([type="submit"],[role="button"])::-webkit-scrollbar {
+		$size: 12px;
+
+		width: $size;
+		height: $size;
+		background: $bg-primary;
+
+		&-track {
+			background: $bg-primary;
+		}
+
+		&-thumb {
+			background: $dark-grey;
+			border-radius: $br-xs;
+		}
+
+		&-corner {
+			background: $dark-grey;
+		}
+
+		&-button {
+			width: 0;
+			height: 0;
+		}
+	}
+}
+
+html, body, #app {
+	overflow-x: hidden;
+	font-family: $font-family;
+	line-height: 1.2;
+	-webkit-font-smoothing: antialiased;
+	direction: ltr;
+}
+
+#app {
+	position: relative;
+	min-height: 100vh;
+	min-height: 100dvh;
+	color: $color-primary;
+	background: $bg-primary;
+	scroll-behavior: auto;
+}
+
+main {
+	@extend .fullHeight;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	font-weight: $fw-normal;
+}
+
+h1 {
+	@extend .fs-h1;
+}
+
+h2 {
+	@extend .fs-h2;
+}
+
+h3 {
+	@extend .fs-h3;
+}
+
+h4 {
+	@extend .fs-h4;
+}
+
+h5 {
+	@extend .fs-h5;
+}
+
+img {
+	vertical-align: middle;
+}
+
+button {
+	@extend .button;
+}
+
+a, p, span {
+	@extend .fs-base;
+}
+
+a {
+	color: $color-primary;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+input {
+	$background: $color-secondary;
+
+	@extend .fs-small;
+
+	height: 50px;
+	padding-left: 20px;
+	color: #fff;
+	background: $background;
+	border: 0;
+	border-radius: $br-sm;
+
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover,
+	&:-webkit-autofill:focus,
+	&:-webkit-autofill:active {
+		color: #fff;
+		filter: none;
+		background-clip: text !important;
+		-webkit-text-fill-color: $color-primary !important;
+		box-shadow: 0 0 0 100px $background inset !important;
+	}
+
+	&:-webkit-autofill::first-line {
+		font-family: $font-family !important;
+
+		@extend .fs-small;
+	}
+
+	&:not([type="submit"],[role="button"]):focus-visible {
+		outline: none !important;
+	}
+
+	&::placeholder {
+		@extend .fs-small;
+
+		color: $light-grey;
+
+		// Firefox fix
+		opacity: 1;
+	}
+}

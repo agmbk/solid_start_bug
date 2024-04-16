@@ -1,0 +1,79 @@
+@use 'sass:color';
+@import '../assets/styles/variables';
+
+$gap: calc(5px + .3vw);
+
+.mosaicWrapper {
+	@extend .absoluteTop, .flexCenter, .fullHeight;
+
+	right: 0;
+	left: 0;
+	overflow: hidden;
+	visibility: hidden;
+	background: #000;
+	perspective-origin: center center;
+	perspective: 2000px;
+
+	&.mosaicWrapperVisible {
+		visibility: visible;
+	}
+}
+
+.mosaic {
+	@extend .flexColumn, .fullWidth;
+
+	position: relative;
+	gap: $gap;
+
+	// Simulate cover
+	height: max(70vw, 75vh, 100%);
+	overflow: visible;
+	transform: skew(339deg, 11deg) rotateY(340deg) rotateX(7deg) scale(1.25);
+}
+
+.row {
+	@extend .flexCenter;
+
+	gap: $gap;
+	width: fit-content;
+	height: calc(100% / var(--rows));
+	margin-left: calc(-1000px / (var(--index) + 1));
+	animation: slide linear infinite;
+	will-change: transform;
+
+	&:nth-child(2), &:nth-child(3), &:nth-child(4) {
+		animation-direction: reverse;
+	}
+
+	& > img {
+		@extend .fullHeight;
+
+		border-radius: $br-sm;
+	}
+}
+
+.picture {
+	@extend .fullHeight;
+}
+
+.duration-1 {
+	animation-duration: 200s;
+}
+
+.duration-2 {
+	animation-duration: 400s;
+}
+
+.duration-3 {
+	animation-duration: 600s;
+}
+
+@keyframes slide {
+	0% {
+		transform: translate3d(0%, 0, 0);
+	}
+
+	100% {
+		transform: translate3d(-50%, 0, 0);
+	}
+}

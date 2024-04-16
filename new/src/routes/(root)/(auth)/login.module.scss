@@ -1,0 +1,97 @@
+@use 'sass:color';
+@import '../../../assets/styles/variables';
+
+$background-base: #000;
+$background: color.scale($background-base, $alpha: -25%);
+$padding: 50px;
+
+.mosaic {
+	@extend .absoluteTop;
+
+	left: 0;
+	z-index: -2;
+}
+
+.main {
+	@extend .defaultSpacing, .fullSize;
+
+	flex: 1;
+	padding: calc(var(--header-height) + $padding) 20px $padding;
+
+	& > div {
+		@extend .fullSize;
+	}
+}
+
+.modal {
+	width: 100%;
+	max-width: 400px;
+
+}
+
+.form {
+	@extend .flexColumn;
+
+	gap: 50px;
+	max-width: 500px;
+	padding: 70px;
+	margin: 0 auto;
+	background: $background;
+	border-radius: $br-md;
+	box-shadow: 0 0 10px 5px color.scale($background-base, $alpha: -75%);
+}
+
+.inputs {
+	@extend .flexColumn;
+
+	gap: 20px;
+
+	& input {
+		@extend .fullWidth;
+	}
+
+	& p {
+		@extend .fs-small;
+	}
+
+	& a {
+		@extend .fs-small;
+	}
+}
+
+.paragraph {
+	color: $grey;
+}
+
+.submitContainer {
+	gap: 0;
+}
+
+.errors {
+	height: 70px;
+}
+
+.footer {
+	background: $background;
+}
+
+@media screen and (max-width: $breakpoint-small) {
+	.mosaic {
+		display: none;
+	}
+
+	.form {
+		padding: 0;
+	}
+
+	.headerButton {
+		padding: 10px 15px;
+	}
+
+	.footer {
+		flex: 1;
+		overflow: hidden;
+		border-top: 1px solid $color-secondary;
+		opacity: 1;
+	}
+}

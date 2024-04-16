@@ -1,0 +1,38 @@
+@use 'sass:color';
+@import '../assets/styles/variables';
+
+.section {
+	$spacer-height: 8px;
+
+	--padding-y: 70px;
+
+	@extend .padding;
+
+	position: relative;
+	padding-top: var(--padding-y);
+	padding-bottom: calc(var(--padding-y) + $spacer-height);
+	text-align: center;
+	background: #000;
+
+	&::before {
+		@extend .absoluteBottom;
+
+		right: 0;
+		left: 0;
+		z-index: $z-index-base;
+		display: block;
+		height: $spacer-height;
+		content: '';
+		background: $bg-primary;
+	}
+
+	& > * + * {
+		margin-top: 45px;
+	}
+}
+
+@media screen and (max-width: $breakpoint-small) {
+	.section {
+		--padding-y: 50px;
+	}
+}

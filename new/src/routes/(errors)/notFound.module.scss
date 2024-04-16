@@ -1,0 +1,12 @@
+@import '../../assets/styles/variables';
+
+.main {
+	@extend .screenHeight, .flexCenter, .flexColumn;
+
+	& h1 {
+		@extend .fs-h2;
+
+		margin-bottom: 50px;
+		text-align: center;
+	}
+}

@@ -1,0 +1,73 @@
+@use 'sass:color';
+@import '../assets/styles/variables';
+
+.header {
+	$height: 90px;
+
+	@extend .absoluteTop, .defaultSpacing, .flexCenter, .flexBetween;
+
+	right: var(--scrollbar-w, 0);
+	left: 0;
+	z-index: $z-index-medium;
+	height: $height;
+	padding: 0 $padding-base;
+	background: transparent linear-gradient(180deg, rgb(0 0 0 / 70%) 10%, transparent);
+
+	&.fixed {
+		position: fixed;
+		transition-timing-function: ease-in-out;
+		transition-duration: .4s;
+		transition-property: background-color;
+	}
+
+	&.headerBlack {
+		background-color: $bg-primary;
+		transition-duration: .3s;
+	}
+
+	& + main {
+		--header-height: #{$height};
+	}
+}
+
+.wrapper {
+	display: flex;
+	gap: calc(15px + 1vw);
+}
+
+.nav {
+	display: flex;
+	gap: calc(5px + 1vw);
+	align-items: center;
+
+	& a {
+		@extend .fs-smaller;
+
+		white-space: nowrap;
+		transition: color .4s;
+
+		&:hover {
+			color: color.scale($color-primary, $lightness: -25%);
+			text-decoration: unset;
+		}
+	}
+}
+
+@media screen and (min-width: $breakpoint-xsmall1 + 1) {
+	.logo {
+		height: 30px;
+	}
+}
+
+@media screen and (max-width: $breakpoint-xsmall1) {
+	.header {
+		$height: 70px;
+
+		height: $height;
+		padding: 0 20px;
+
+		& + main {
+			--header-height: #{$height};
+		}
+	}
+}

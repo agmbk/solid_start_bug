@@ -1,0 +1,31 @@
+@import '../../assets/styles/variables';
+
+.submitContainer {
+	@extend .fullWidth;
+
+	position: relative;
+
+	& > input[type='submit'] {
+		@extend .button;
+
+		padding: 0;
+	}
+
+	& > svg {
+		position: absolute;
+		inset: 0;
+		z-index: $z-index-base;
+		display: none;
+		margin: auto;
+	}
+
+	&.submitting {
+		& > input[type='submit'] {
+			color: transparent;
+		}
+
+		& > svg {
+			display: block;
+		}
+	}
+}

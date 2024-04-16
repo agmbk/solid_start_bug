@@ -1,0 +1,41 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"jsxImportSource": "solid-js",
+		"jsx": "preserve",
+		"noEmit": true,
+		"strict": true,
+		"alwaysStrict": true,
+		"isolatedModules": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"noUncheckedIndexedAccess": true,
+		"forceConsistentCasingInFileNames": true,
+		"noImplicitReturns": true,
+		"noImplicitAny": true,
+		"noImplicitOverride": true,
+		"noImplicitThis": true,
+		"types": [
+			"vite-plugin-solid-svg/types",
+			"vinxi/client",
+			"vite/client",
+			"@types/gtag.js/index.d.ts"
+		],
+		"baseUrl": "./",
+		"paths": {
+			"~/*": [
+				"./src/*"
+			]
+		}
+	},
+	"include": [
+		"src",
+		"./src/index.d.ts"
+	],
+	"exclude": [
+		"node_modules"
+	]
+}

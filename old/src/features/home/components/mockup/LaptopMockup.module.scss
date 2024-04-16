@@ -1,0 +1,13 @@
+@import '../../assets/styles/variables';
+
+.video {
+	position: absolute;
+	top: 15.5%;
+	left: 9.8%;
+	max-width: 76%;
+	aspect-ratio: 16/9;
+}
+
+.image {
+	z-index: $z-index-base;
+}

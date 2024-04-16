@@ -1,0 +1,291 @@
+@use 'sass:color';
+
+// ========================
+// Breakpoints
+// ========================
+
+// Smartphones en mode portrait :
+// Inférieur à 480px
+// De 481px à 599px
+// De 600px à 767px
+// De 768px à 899px
+// De 900px à 991px
+
+// Smartphones en mode paysage et petites tablettes :
+// De 992px à 1023px
+// De 1024px à 1199px
+// De 1200px à 1279px
+// De 1280px à 1365px
+
+// Tablettes en mode paysage et petits écrans d'ordinateur :
+// De 1366px à 1439px
+// De 1440px à 1599px
+// De 1600px à 1919px
+
+// Ordinateurs portables et écrans d'ordinateur de taille standard :
+// De 1920px à 2159px
+// De 2160px à 2399px
+// De 2400px à 2559px
+// De 2560px et plus
+
+$breakpoint-xsmall3: 300px;
+$breakpoint-xsmall2: 380px;
+$breakpoint-xsmall1: 480px;
+$breakpoint-xsmall: 640px;
+$breakpoint-small: 740px;
+$breakpoint-medium: 1024px;
+$breakpoint-large: 1280px;
+$breakpoint-xlarge: 1400px;
+$breakpoint-xlarge1: 1500px;
+$breakpoint-xlarge2: 1920px;
+$breakpoint-xlarge3: 2500px;
+
+// ========================
+// Colors
+// ========================
+// Text
+$color-primary: #fff;
+$color-secondary: #333;
+$color-secondary-light: #666;
+
+// Background
+$bg-primary: #141414;
+$bg-primary-light: #181818;
+$bg-secondary: #e6e6e6;
+$bg-secondary-light: #f3f3f3;
+
+// Others
+$soft-black: #121212;
+$grey: #818181;
+$light-grey: #ccc;
+$dark-grey: #4d4d4d;
+$darker-grey: #262626;
+$red: #f3502b;
+$green: #46d369;
+$color: #0071eb;
+
+// ========================
+// Typography
+// ========================
+
+@mixin font-size($size) {
+	font-size: $size !important;
+	line-height: calc($size * 1.4) !important;
+}
+
+// Titles Font Size
+$fs-h1: calc(32px + .1vw);
+$fs-h2: calc(28px + .1vw);
+$fs-h3: calc(24px + .1vw);
+$fs-h4: calc(20px + .1vw);
+$fs-h5: calc(16px + .1vw);
+$fs-h6: calc(14px + .1vw);
+
+.fs-h1 {
+	@include font-size($fs-h1);
+}
+
+.fs-h2 {
+	@include font-size($fs-h2);
+}
+
+.fs-h3 {
+	@include font-size($fs-h3);
+}
+
+.fs-h4 {
+	@include font-size($fs-h4);
+}
+
+.fs-h5 {
+	@include font-size($fs-h5);
+}
+
+// Paragraphes Font Size
+$fs-base: calc(16px + .1vw);
+$fs-small: calc(14px + .1vw);
+$fs-smaller: calc(12px + .1vw);
+$fs-smallest: calc(10px + .1vw);
+
+.fs-h6 {
+	@include font-size($fs-h6);
+}
+
+.fs-base {
+	@include font-size($fs-base);
+}
+
+.fs-small {
+	@include font-size($fs-small);
+}
+
+.fs-smaller {
+	@include font-size($fs-smaller);
+}
+
+.fs-smallest {
+	@include font-size($fs-smallest);
+}
+
+// Font Weight
+$fw-extra-light: 100;
+$fw-light: 300;
+$fw-normal: 400;
+$fw-semi-bold: 500;
+$fw-bold: 700;
+$fw-bolder: 900;
+
+// ========================
+// Layouts & Borders
+// ========================
+$z-index-base: 1;
+$z-index-low: 10;
+$z-index-medium: 100;
+$z-index-high: 1000;
+$br-xs: 3px;
+$br-sm: 5px;
+$br-md: 10px;
+$br-lg: 15px;
+$br-xl: 20px;
+$padding-base: min(4vw, 60px);
+$card-border-radius: $br-md;
+$card-spacing: calc(2px + .25vw);
+$outline-size: 2px;
+
+// ========================
+// Extends & Common Styles
+// ========================
+
+.outline {
+	outline: $color-primary solid $outline-size !important;
+}
+
+.scrollY {
+	min-height: calc(100vh + 20px);
+	min-height: calc(100dvh + 20px);
+}
+
+.hidden {
+	display: none !important;
+}
+
+.disabled {
+	pointer-events: none;
+}
+
+.absoluteTop {
+	position: absolute;
+	top: 0;
+}
+
+.absoluteBottom {
+	position: absolute;
+	bottom: 0;
+}
+
+.defaultSpacing {
+	padding: 0 $padding-base;
+}
+
+.flexCenter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.flexColumn {
+	display: flex;
+	flex-direction: column;
+}
+
+.flexBetween {
+	display: flex;
+	justify-content: space-between;
+}
+
+.fullHeight {
+	height: 100%;
+}
+
+.fullWidth {
+	width: 100%;
+}
+
+.fullSize {
+	@extend .fullHeight, .fullWidth;
+}
+
+.screenHeight {
+	height: 100vh;
+	height: 100dvh;
+}
+
+.screenWidth {
+	width: 100vw;
+	width: 100dvw;
+}
+
+.screenSize {
+	@extend .screenHeight, .screenWidth;
+}
+
+.button {
+	@extend .fs-base;
+
+	padding: 14px 20px;
+	font-weight: $fw-semi-bold;
+	color: $color-primary;
+	white-space: nowrap;
+	background: $color;
+	border: 0;
+	border-radius: $br-sm;
+	box-shadow: 0 1px 1px rgba(0 0 0 / 25%);
+	transition: background-color .2s ease-in-out;
+
+	&:hover {
+		color: $color-primary;
+		background-color: color.scale($color, $lightness: -10%);
+	}
+}
+
+.posterRatio {
+	aspect-ratio: 2/3;
+}
+
+.backdropRatio {
+	aspect-ratio: 16/9;
+}
+
+// ========================
+// Animations
+// ========================
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@mixin slide-in($axis, $amount, $args, $animations: null) {
+	@keyframes slide-in {
+		from {
+			transform: translate3d(if($axis == x, (-#{$amount}, 0, 0), if($axis == y, (0, #{$amount}, 0), if($axis == z, (0, 0, #{$amount}), (0, 0, 0)))));
+		}
+
+		to {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+
+	$all-animations: slide-in $args;
+
+	@if $animations {
+		$all-animations: #{$all-animations}, #{$animations};
+	}
+
+	animation: $all-animations;
+}

@@ -1,0 +1,70 @@
+@use 'sass:color';
+@import '../assets/styles/variables';
+
+$background: #000;
+
+.header {
+	@extend .padding;
+}
+
+.headerLogo {
+	height: 30px;
+}
+
+.loginButton {
+	@include font-size($fs-smaller);
+	@extend .button;
+
+	padding: 6px 16px;
+	font-weight: $fw-normal;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.main {
+	background: $background;
+
+	& h1, h2 {
+		@include font-size(calc($fs-h2 + 1.2vw));
+
+		font-weight: $fw-bolder;
+	}
+
+	& p {
+		@include font-size(calc($fs-base * 1.5));
+	}
+}
+
+.footer {
+	background: $background;
+}
+
+@media screen and (max-width: $breakpoint-small) {
+	.main {
+		& p {
+			@include font-size(calc($fs-base * 1.2));
+		}
+	}
+
+	.headerLogo {
+		height: 25px;
+	}
+
+	.loginButton {
+		@include font-size($fs-smaller);
+
+		padding: 5px 10px;
+	}
+}
+
+@media screen and (max-width: $breakpoint-xsmall2) {
+	.headerLogo {
+		height: 20px;
+	}
+
+	.loginButton {
+		padding: 4px 8px;
+	}
+}

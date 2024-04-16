@@ -1,0 +1,92 @@
+@use 'sass:color';
+@import '../assets/styles/variables';
+
+.form {
+	@extend .fullWidth;
+
+	max-width: 1100px;
+	padding: 0 5%;
+	margin: 0 auto;
+
+	& > .text {
+		@include font-size(calc($fs-base * 1.1));
+
+		margin-top: 0;
+		line-height: 1.5;
+		text-align: center;
+	}
+}
+
+.inputWrapper {
+	@extend .fullWidth, .flexBetween;
+
+	position: relative;
+	display: grid;
+	grid-template-columns: 65% 35%;
+	gap: 10px;
+	max-width: 600px;
+	margin: 0 auto;
+
+	& > div {
+		@extend .fullSize;
+
+		& > input {
+			$background: color.scale($bg-primary, $alpha: -30%);
+
+			@extend .fullSize;
+
+			height: 60px;
+
+			@extend .fs-base;
+
+			background: $background;
+			border: 1px solid color.scale($color-secondary-light, $alpha: -30%);
+
+			&:-webkit-autofill,
+			&:-webkit-autofill:hover,
+			&:-webkit-autofill:focus,
+			&:-webkit-autofill:active {
+				box-shadow: 0 0 0 100px $background inset !important;
+			}
+
+			&::placeholder {
+				@extend .fs-base;
+			}
+		}
+
+		&.submitButton > input[type="submit"] {
+			@extend .fs-h4;
+		}
+	}
+}
+
+@media screen and (max-width: $breakpoint-xsmall) {
+	.form {
+		& > .text {
+			@include font-size(calc($fs-small * 1.1));
+		}
+	}
+
+	.inputWrapper {
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: repeat(3, 1fr);
+
+		& > div {
+			grid-column: span 3;
+
+			input {
+				height: 50px;
+			}
+
+			&.submitButton {
+				grid-column: 2;
+
+				& > input[type="submit"] {
+					min-width: 150px;
+
+					@include font-size($fs-base);
+				}
+			}
+		}
+	}
+}

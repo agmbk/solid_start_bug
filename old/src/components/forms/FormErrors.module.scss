@@ -1,0 +1,9 @@
+@import '../../assets/styles/variables';
+
+.error {
+	margin: 5px 0 0;
+
+	@extend .fs-small;
+
+	color: $red;
+}

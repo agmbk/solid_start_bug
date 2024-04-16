@@ -1,0 +1,7 @@
+@use 'sass:color';
+@import '../../assets/styles/variables';
+
+.image {
+	object-fit: cover;
+	background: color.scale($bg-primary, $lightness: 5%);
+}

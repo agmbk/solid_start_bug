@@ -1,0 +1,12 @@
+@import '../../assets/styles/variables';
+
+.container {
+	@extend .screenHeight, .flexCenter, .flexColumn;
+
+	& h1 {
+		@include font-size(calc($fs-base + .4vw));
+
+		padding: min(2.5%, 20px);
+		text-align: center;
+	}
+}

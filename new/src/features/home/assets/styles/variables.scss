@@ -1,0 +1,18 @@
+@use 'sass:color';
+@import '../../../../assets/styles/variables';
+
+.padding {
+	padding: 0 18%;
+}
+
+@media screen and (max-width: $breakpoint-xlarge2) {
+	.padding {
+		padding: 0 12%;
+	}
+}
+
+@media screen and (max-width: $breakpoint-large) {
+	.padding {
+		padding: 0 30px;
+	}
+}
